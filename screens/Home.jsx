@@ -36,7 +36,7 @@ const Home = ({ navigation }) => {
           
           await buscarPlato(comidaBuscada).then((response) => {
             
-            
+            setPlato({listaPLatos: response})
             console.log(response)
            
 
