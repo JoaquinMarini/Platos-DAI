@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Image, InlineImage, TouchableOpacity, TextInput, Button, Alert} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import Boton from './Boton';
 import axios from 'axios';
 
 const ImagenDelPlato = ({ navigation }) => {
     const [imagenPlatos, setImagenPlatos] = useState([])
+
     let ghostlist = []
 
     const client =  axios.create({baseURL:'https://api.spoonacular.com/recipes/complexSearch'})
@@ -31,8 +33,14 @@ const ImagenDelPlato = ({ navigation }) => {
                 imagenPlatos.map(
                     (i) => (
                         <>
+                         
                             <p>{i.title}</p>
                             <img src={i.image} style={{height:'80px',width:'80px',marginLeft:'100px'}}/>
+                            <Boton
+                                text="detalle"
+                                title="detalle"
+                                onPress= {()=>{navigation.navigate('Detalle')}}
+                                />
                         </>
                     )
                 )

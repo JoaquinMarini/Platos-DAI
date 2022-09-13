@@ -40,4 +40,4 @@ const DetalleDelPlato = ({ navigation }) => {
     )
 }
 
-export default ImagenDelPlato;
+export default DetalleDelPlato;
