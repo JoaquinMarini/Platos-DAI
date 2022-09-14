@@ -6,6 +6,7 @@ import NombreDelPlato from '../components/NombreDelPlato';
 import ImagenDelPlato from '../components/ImagenDelPlato';
 import { buscarPlato } from '../services/buscarPlato';
 import CardPlato from '../components/cardPlato'
+import { detallePlato } from '../services/detallePlato';
 
 
 const Home = ({ navigation }) => {
@@ -16,8 +17,12 @@ const Home = ({ navigation }) => {
 
 
     const [plato, setPlato] = useState({
-    listaPLatos:[]
+      listaPLatos:[]
     });
+
+    const [detalle, setDetalle] = useState({
+      detallePlato:[]
+    })
   
 
       const Buscar = async (comidaBuscada) => {

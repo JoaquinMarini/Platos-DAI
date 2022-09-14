@@ -6,19 +6,26 @@ import {contextState} from './contextState'
 import NombreDelPlato from '../components/NombreDelPlato';
 import ImagenDelPlato from '../components/NombreDelPlato';
 
-const Form = ({ navigation }) => {
+const detallePlato = ({ navigation }) => {
 
-const client =  axios.create({baseURL:'http://challenge-react.alkemy.org/'})
+
+  await detallePlato(id) .then((response) => {
+
+  setDetalle({detallePlato: response})
+  console.log(response)
+
+})
+.catch(() => {
+  console.log("detalle anda mal")
+ 
+});
 
     
-
-    
-
   return (
         
     <>
     <View>
-             {/*
+             {
              <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src="holder.js/100px180" />
       <Card.Body>
@@ -32,7 +39,7 @@ const client =  axios.create({baseURL:'http://challenge-react.alkemy.org/'})
       </Card.Body>
     </Card> 
     
-             */}  
+             }  
               
       </View>
     </>  
