@@ -5,6 +5,7 @@ import { useState } from 'react';
 import NombreDelPlato from '../components/NombreDelPlato';
 import ImagenDelPlato from '../components/ImagenDelPlato';
 import { buscarPlato } from '../services/buscarPlato';
+import CardPlato from '../components/cardPlato'
 
 
 const Home = ({ navigation }) => {
@@ -18,11 +19,6 @@ const Home = ({ navigation }) => {
     listaPLatos:[]
     });
   
-
-
-
-
-
 
       const Buscar = async (comidaBuscada) => {
 
@@ -48,31 +44,34 @@ const Home = ({ navigation }) => {
         }
       }
 
-
+        const renderItem = ({ item }) => (
+          <CardPlato title={item.title} image={item.image} />
+        );
 
 return(
 
 <View>
 
-<TextInput
+  <TextInput         
+              
+              placeholder="Busque un plato"
+              name="Buscador"
+              value={platoBuscado.plato}
+              onChangeText={(comidaBuscada) => {setPlatoBuscado({plato: comidaBuscada});Buscar(comidaBuscada)}}
             
-            
-            placeholder="Busque un plato"
-            name="Buscador"
-            value={platoBuscado.plato}
-            onChangeText={(comidaBuscada) => {setPlatoBuscado({plato: comidaBuscada});Buscar(comidaBuscada)}}
-          
           />
 
-
-
-
-
+  <FlatList
+          data={plato.listaPLatos}
+          renderItem={renderItem}
+          keyExtractor={item => item.title}
+        />
+      
 </View>
 
 )
     
-    
+
 }
 
 export default Home;
