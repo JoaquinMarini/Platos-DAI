@@ -6,7 +6,7 @@ import NombreDelPlato from '../components/NombreDelPlato';
 import ImagenDelPlato from '../components/ImagenDelPlato';
 import { buscarPlato } from '../services/buscarPlato';
 import CardPlato from '../components/cardPlato'
-import { detallePlato } from '../services/detallePlato';
+import { detallePlato } from '../services/infoPlato';
 
 
 const Home = ({ navigation }) => {

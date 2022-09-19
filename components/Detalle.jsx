@@ -31,7 +31,10 @@ const DetalleDelPlato = ({ navigation }) => {
                 detallePlatos.map(
                     (i) => (
                         <>
-                            <p>{i.title}</p>
+                        <p>{i.title}</p>
+                        <p>{i.pricePerServing}</p>
+                        <p>{i.healthScore}</p>
+                        <p>{i.vegan}</p>                            
                         </>
                     )
                 )

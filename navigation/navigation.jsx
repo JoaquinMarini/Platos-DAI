@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Form from '../screens/form';
 import Home from '../screens/Home'; 
 import Detalle from '../components/Detalle'
+import detallePlato from '../screens/detalleplato';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,8 +27,8 @@ const Stack = createNativeStackNavigator();
                   component={Home} 
                   />
                    <Stack.Screen 
-                  name="Detalle" 
-                  component={Detalle} 
+                  name="detallePlato" 
+                  component={detallePlato} 
                   />
                    
                 </Stack.Navigator>
