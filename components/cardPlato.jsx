@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native';
 
 
 const CardPlato = (props) => {
@@ -11,7 +12,7 @@ const CardPlato = (props) => {
     </Card.Content>
     <Card.Cover source={{ uri: props.image}} />
     <Card.Actions>
-      <Button onClick={navigation.navigate("detallePlato")}>Detalle</Button>
+        <Button onPress={() => navigation.navigate("Detalle")}>Detalle</Button>
     </Card.Actions>
   </Card>
 );

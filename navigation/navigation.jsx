@@ -27,8 +27,8 @@ const Stack = createNativeStackNavigator();
                   component={Home} 
                   />
                    <Stack.Screen 
-                  name="detallePlato" 
-                  component={detallePlato} 
+                  name="Detalle" 
+                  component={Detalle} 
                   />
                    
                 </Stack.Navigator>

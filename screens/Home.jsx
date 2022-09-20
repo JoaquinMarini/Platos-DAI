@@ -9,7 +9,7 @@ import CardPlato from '../components/cardPlato'
 import { detallePlato } from '../services/infoPlato';
 
 
-const Home = ({ navigation }) => {
+const Home = ()=> {
 
     const [platoBuscado, setPlatoBuscado] = useState({
         plato:""
@@ -69,7 +69,7 @@ return(
   <FlatList
           data={plato.listaPLatos}
           renderItem={renderItem}
-          keyExtractor={item => item.title}
+          keyExtractor={item => item.id}
         />
       
 </View>

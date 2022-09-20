@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Image, InlineImage, TouchableOpacity, TextInput, Button, Alert} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
+import { infoPlato } from '../services/infoPlato';
 
 const DetalleDelPlato = ({ navigation }) => {
     const [detallePlatos, setDetallePlatos] = useState([])
@@ -10,7 +11,7 @@ const DetalleDelPlato = ({ navigation }) => {
     const client =  axios.create({baseURL:'https://api.spoonacular.com'})
     console.log("entro a guardar")
     useEffect(()=>{            
-        client.get(`/recipes/1/information`)
+        client.get(`/recipes//information`)
         .then(function(res){
             console.log(res.data.results)
             ghostlist = res.data.results
@@ -23,6 +24,8 @@ const DetalleDelPlato = ({ navigation }) => {
             setDetallePlatos(ghostlist)
         })
     },[])
+
+
 
     console.log(detallePlatos)
     return(
