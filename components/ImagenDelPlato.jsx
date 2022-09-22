@@ -36,11 +36,6 @@ const ImagenDelPlato = ({ navigation }) => {
                          
                             <p>{i.title}</p>
                             <img src={i.image} style={{height:'80px',width:'80px',marginLeft:'100px'}}/>
-                            <Boton
-                                text="detalle"
-                                title="detalle"
-                                onPress= {()=>{navigation.navigate('Detalle')}}
-                                />
                         </>
                     )
                 )

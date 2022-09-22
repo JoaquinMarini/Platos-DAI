@@ -4,16 +4,14 @@ import { StyleSheet, Text, View } from 'react-native';
 import Form from './screens/form';
 import { NavigationContainer } from '@react-navigation/native';
 import Main from './navigation/navigation';
-import ContextProvider from './screens/contextState'
+import {ContextProvider} from '../Platos-DAI/contextState'
 
 export default function App() {
   return (
     <>
-    
-        
-      <Main/>   
-
-  
+      <ContextProvider>
+      <Main/>
+      </ContextProvider>
     </>
     
   );

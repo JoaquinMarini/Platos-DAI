@@ -50,7 +50,7 @@ const Home = ()=> {
       }
 
         const renderItem = ({ item }) => (
-          <CardPlato title={item.title} image={item.image} />
+          <CardPlato id={item.id} title={item.title} image={item.image} />
         );
 
 return(
