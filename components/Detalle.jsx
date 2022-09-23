@@ -9,10 +9,12 @@ const DetalleDelPlato = ({ navigation }) => {
     const [detallePlatos, setDetallePlatos] = useState([])
     const {contextState, setContextState} = useContextState();
     const funcion = () =>{
+        console.log("Estoy ")
         setContextState({
             type: ActionTypes.AddMenu,
             value: detallePlatos
           })
+        console.log(contextState)
         navigation.navigate("Home")
     }
     let ghostlist = []

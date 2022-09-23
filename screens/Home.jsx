@@ -15,6 +15,7 @@ const Home = ()=> {
         plato:""
       });
     const {contextState, setContextState} = useContextState();
+    console.log(contextState)
 
     const [plato, setPlato] = useState({
       listaPLatos:[]
@@ -31,6 +32,7 @@ const Home = ()=> {
         
         if (!comidaBuscada || longitud < 3){  
             console.log("algo hiciste mal")
+            setPlato([])
          
           
         } else {
@@ -52,7 +54,6 @@ const Home = ()=> {
         const renderItem = ({ item }) => (
           <CardPlato id={item.id} title={item.title} image={item.image} />
         );
-        console.log(contextState)
 return(
 <View>
 
@@ -67,6 +68,12 @@ return(
 
   <FlatList
           data={plato.listaPLatos}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+        />
+  Menu
+  <FlatList
+          data={contextState.menu}
           renderItem={renderItem}
           keyExtractor={item => item.id}
         />

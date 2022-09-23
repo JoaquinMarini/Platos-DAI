@@ -18,7 +18,7 @@ export const reducer = (state = {}, action) => {
                 ...state,
                 platoSeleccionado: action.value
             };
-        case ActionTypes.SetMenu:
+        case ActionTypes.AddMenu:
             return {
                 ...state,
                 menu: [...state.menu, action.value]
