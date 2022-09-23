@@ -9,7 +9,11 @@ const DetalleDelPlato = ({ navigation }) => {
     const [detallePlatos, setDetallePlatos] = useState([])
     const {contextState, setContextState} = useContextState();
     const funcion = () =>{
-
+        setContextState({
+            type: ActionTypes.AddMenu,
+            value: detallePlatos
+          })
+        navigation.navigate("Home")
     }
     let ghostlist = []
 
@@ -34,10 +38,20 @@ const DetalleDelPlato = ({ navigation }) => {
 
     console.log(detallePlatos)
     console.log(contextState)
+    if(detallePlatos.vegan) detallePlatos.vegan =  "SI"
+    else detallePlatos.vegan =  "NO"
     return(
         <Card>
             <Card.Content>
-            <Title>{contextState.platoSeleccionado.id}</Title>
+            <Title>{contextState.platoSeleccionado.title}</Title>
+            <Paragraph>
+                {
+`Precio: ${detallePlatos.pricePerServing}
+Health score: ${detallePlatos.healthScore}
+Vegano: ${detallePlatos.vegan}`
+                }
+            </Paragraph>
+            
             </Card.Content>
             <Card.Cover source={{ uri: contextState.platoSeleccionado.image}} />
             <Card.Actions>

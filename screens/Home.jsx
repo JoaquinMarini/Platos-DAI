@@ -7,14 +7,14 @@ import ImagenDelPlato from '../components/ImagenDelPlato';
 import { buscarPlato } from '../services/buscarPlato';
 import CardPlato from '../components/cardPlato'
 import { detallePlato } from '../services/infoPlato';
+import { ActionTypes, useContextState } from "../contextState";
 
 
 const Home = ()=> {
-
     const [platoBuscado, setPlatoBuscado] = useState({
         plato:""
       });
-
+    const {contextState, setContextState} = useContextState();
 
     const [plato, setPlato] = useState({
       listaPLatos:[]
@@ -52,9 +52,8 @@ const Home = ()=> {
         const renderItem = ({ item }) => (
           <CardPlato id={item.id} title={item.title} image={item.image} />
         );
-
+        console.log(contextState)
 return(
-
 <View>
 
   <TextInput         
