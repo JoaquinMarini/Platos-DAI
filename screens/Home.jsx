@@ -6,6 +6,7 @@ import NombreDelPlato from '../components/NombreDelPlato';
 import ImagenDelPlato from '../components/ImagenDelPlato';
 import { buscarPlato } from '../services/buscarPlato';
 import CardPlato from '../components/cardPlato'
+import CardPlatoMenu from '../components/cardPlatoMenu'
 import { detallePlato } from '../services/infoPlato';
 import { ActionTypes, useContextState } from "../contextState";
 
@@ -54,6 +55,9 @@ const Home = ()=> {
         const renderItem = ({ item }) => (
           <CardPlato id={item.id} title={item.title} image={item.image} />
         );
+        const renderItemMenu = ({ item }) => (
+          <CardPlatoMenu id={item.id} title={item.title} image={item.image} />
+        );
 return(
 <View>
 
@@ -74,7 +78,7 @@ return(
   Menu
   <FlatList
           data={contextState.menu}
-          renderItem={renderItem}
+          renderItem={renderItemMenu}
           keyExtractor={item => item.id}
         />
       
