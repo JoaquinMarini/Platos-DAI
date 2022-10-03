@@ -2,8 +2,12 @@ import React, { useContext } from "react"
 
 export const initialState = {
     platoSeleccionado: {},
-    menu: []
+    menu: [],
+    price: 0,
+    healthScore: 0
 };
+let veganCounter=0;
+let nonVeganCounter=0;
 
 export const ActionTypes = {
     SetPlatoSeleccionado: "SET_PLATO_SELECCIONADO",
@@ -19,16 +23,48 @@ export const reducer = (state = {}, action) => {
                 platoSeleccionado: action.value
             };
         case ActionTypes.AddMenu:
+            console.log(action.value.vegan)
+            if(action.value.vegan=="SI"){
+                if(veganCounter<2){
+                    veganCounter++
+                    return {
+                        ...state,
+                        menu: [...state.menu, action.value],
+                        healthScore: state.healthScore + action.value.healthScore,
+                        price: state.price + action.value.pricePerServing
+                    };
+                }else{
+                    console.log("No se pueden agregar mas de dos platos veganos")
+                }
+            }
+            else{
+                if(nonVeganCounter<2){
+                    nonVeganCounter++
+                    return {
+                        ...state,
+                        menu: [...state.menu, action.value],
+                        healthScore: state.healthScore + action.value.healthScore,
+                        price: state.price + action.value.pricePerServing
+                    };
+                }else{
+                    console.log("No se pueden agregar mas de dos platos no veganos")
+                    
+                }
+            }
             return {
                 ...state,
-                menu: [...state.menu, action.value]
+                menu: [...state.menu]
             };
         case ActionTypes.DeleteMenu:
-                let newMenu = state.menu.filter(plato => plato?.id!=action.value?.id)
-                return {
-                    ...state,
-                    menu: newMenu
-                };
+            if(action.value.vegan=="SI") veganCounter--
+            else nonVeganCounter--
+            let newMenu = state.menu.filter(plato => plato?.id!=action.value?.id)
+            return {
+                ...state,
+                menu: newMenu,
+                healthScore: state.healthScore - action.value.healthScore,
+                price: state.price - action.value.pricePerServing
+            };
     }
 }
 

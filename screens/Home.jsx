@@ -75,7 +75,9 @@ return(
           renderItem={renderItem}
           keyExtractor={item => item.id}
         />
-  Menu
+  <Text>Menu</Text>
+  <Text>precio {contextState.price}</Text>
+  <Text>healthscore {contextState.healthScore/contextState.menu.length}</Text>
   <FlatList
           data={contextState.menu}
           renderItem={renderItemMenu}
