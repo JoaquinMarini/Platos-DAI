@@ -9,15 +9,27 @@ const DetalleDelPlato = ({ navigation }) => {
     const [detallePlatos, setDetallePlatos] = useState([])
     const {contextState, setContextState} = useContextState();
     const funcion = () =>{
-        console.log("Estoy ")
-        setContextState({
-            type: ActionTypes.AddMenu,
-            value: detallePlatos
-          })
-        console.log(contextState)
-        navigation.navigate("Home")
+       
+            console.log("Estoy ")
+            setContextState({
+                type: ActionTypes.AddMenu,
+                value: detallePlatos
+              })
+            console.log(contextState)
+            navigation.navigate("Home")
+        
+        
     }
     let ghostlist = []
+
+    const funcion2 =() =>{
+        setContextState({
+            type: ActionTypes.DeleteMenu,
+            value: detallePlatos
+          })
+          console.log(contextState)
+            navigation.navigate("Home")
+    }
 
     const client =  axios.create({baseURL:'https://api.spoonacular.com'})
     console.log("entro a guardar")
@@ -36,7 +48,7 @@ const DetalleDelPlato = ({ navigation }) => {
         })
     },[])
 
-
+let existePlato = contextState.menu.find(item => item.id === detallePlatos.id)
 
     console.log(detallePlatos)
     console.log(contextState)
@@ -56,9 +68,18 @@ Vegano: ${detallePlatos.vegan}`
             
             </Card.Content>
             <Card.Cover source={{ uri: contextState.platoSeleccionado.image}} />
-            <Card.Actions>
-                <Button onPress={funcion}>Agregar al menu</Button>
-            </Card.Actions>
+            
+                {
+                  existePlato ? 
+                   <Card.Actions> <Button onPress={funcion2}>Eliminar del menu</Button></Card.Actions>
+                
+                :
+                
+                    <Card.Actions><Button onPress={funcion}>Agregar al menu</Button></Card.Actions>
+                }
+                
+                
+            
         </Card>
     )
 }
