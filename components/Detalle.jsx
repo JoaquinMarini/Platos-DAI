@@ -50,6 +50,8 @@ const DetalleDelPlato = ({ navigation }) => {
 
 let existePlato = contextState.menu.find(item => item.id === detallePlatos.id)
 
+if (detallePlatos.length === 0) return <p>Cargando...</p>
+
     console.log(detallePlatos)
     console.log(contextState)
     if(detallePlatos.vegan) detallePlatos.vegan =  "SI"

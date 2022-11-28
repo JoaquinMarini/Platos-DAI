@@ -2,7 +2,7 @@ import React, { Component, useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Image, InlineImage, TouchableOpacity, TextInput, Button, Alert} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
-import {contextState} from './contextState'
+import {contextState} from '../contextState'
 import NombreDelPlato from '../components/NombreDelPlato';
 import ImagenDelPlato from '../components/NombreDelPlato';
 import Detalle from '../components/Detalle';

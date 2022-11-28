@@ -2,7 +2,7 @@ import React, { Component, useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Image, InlineImage, TouchableOpacity, TextInput, Button, Alert} from 'react-native';
 
 import axios from 'axios';
-//import {contextState} from './contextState'
+//import {contextState} from '../contextState'
 import { useNavigation } from '@react-navigation/native';
 
 const Form = ({ navigation }) => {
