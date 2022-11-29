@@ -61,7 +61,7 @@ const Home = ()=> {
 return(
 <View>
 
-  <TextInput         
+  <TextInput style={{marginTop:'10%'}}        
               
               placeholder="Busque un plato"
               name="Buscador"

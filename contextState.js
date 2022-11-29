@@ -32,6 +32,7 @@ export const reducer = (state = {}, action) => {
                         menu: [...state.menu, action.value],
                         healthScore: state.healthScore + action.value.healthScore,
                         price: state.price + action.value.pricePerServing
+                        
                     };
                 }else{
                     console.log("No se pueden agregar mas de dos platos veganos")
@@ -52,8 +53,7 @@ export const reducer = (state = {}, action) => {
                 }
             }
             return {
-                ...state,
-                menu: [...state.menu]
+                ...state
             };
         case ActionTypes.DeleteMenu:
             if(action.value.vegan=="SI") veganCounter--
@@ -61,7 +61,7 @@ export const reducer = (state = {}, action) => {
             let newMenu = state.menu.filter(plato => plato?.id!=action.value?.id)
             return {
                 ...state,
-                menu: newMenu,
+                menu: [...newMenu],
                 healthScore: state.healthScore - action.value.healthScore,
                 price: state.price - action.value.pricePerServing
             };

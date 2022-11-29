@@ -4,6 +4,7 @@ import axios from 'axios';
 import { infoPlato } from '../services/infoPlato';
 import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
 import { ActionTypes, useContextState } from "../contextState";
+import {Text} from 'react-native'
 
 const DetalleDelPlato = ({ navigation }) => {
     const [detallePlatos, setDetallePlatos] = useState([])
@@ -38,19 +39,17 @@ const DetalleDelPlato = ({ navigation }) => {
         .then(function(res){
             console.log(res.data)
             ghostlist = res.data
+            setDetallePlatos(ghostlist)
         })
         .catch(function(error){
             console.log(error)
             console.log("no se han traido los platos")
         })
-        .then(function() {
-            setDetallePlatos(ghostlist)
-        })
     },[])
 
 let existePlato = contextState.menu.find(item => item.id === detallePlatos.id)
 
-if (detallePlatos.length === 0) return <p>Cargando...</p>
+if (!detallePlatos.healthScore) return <Text>Cargando...</Text>
 
     console.log(detallePlatos)
     console.log(contextState)
@@ -59,7 +58,7 @@ if (detallePlatos.length === 0) return <p>Cargando...</p>
     return(
         <Card>
             <Card.Content>
-            <Title>{contextState.platoSeleccionado.title}</Title>
+            <Text>{contextState.platoSeleccionado.title}</Text>
             <Paragraph>
                 {
 `Precio: ${detallePlatos.pricePerServing}
